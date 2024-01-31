@@ -2,6 +2,8 @@ FROM node:18
 ENV NODE_ENV=production
 WORKDIR /app
 COPY ["package.json","./"]
-RUN npm install --omit=dev --verbose
+RUN curl -L -O -H "Authorization: Bearer eyJraWQiOiJPOXZpZUc4bG0zU1N2Z0JPcTAxNmd0WDNJODZfVTdDckhabUJqR0FaM3N3IiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULjVPYko1bFhJWkh1Y2lsQ1k5dExSdXd2RndTM3RuMU1waXJMUDA5RGtqVTgub2FyMnAyamxuZ2MySE9pM2UycDciLCJpc3MiOiJodHRwczovL2FwcGQtaWRlbnRpdHkub2t0YS5jb20vb2F1dGgyL2F1c3B2bnAzdmtrclNIMk9RMnA2IiwiYXVkIjoibWljb3JzZXJ2aWNlcyIsImlhdCI6MTcwNjcxOTQzMiwiZXhwIjoxNzA2ODA1ODMyLCJjaWQiOiIwb2ExanMxMHQ3ekJjTENnRzJwNyIsInVpZCI6IjAwdW9iZm1kNHN4WkZQVUFnMnA3Iiwic2NwIjpbIm9mZmxpbmVfYWNjZXNzIiwiZG93bmxvYWQiLCJvcGVuaWQiXSwiYXV0aF90aW1lIjoxNzA2Njg4NTE0LCJzdWIiOiJhbHdvamNpa0BhcHBkeW5hbWljcy5jb20ifQ.CW6SR-vmFYRtAMmfnaoK1en9ICfxzzIM9rrhr1LaZAO-pmIDV7XuDjW3OONLzDrbPKsyZB1XeDBd6LYmZtfL1mPiPC7PLFSwiYkOa698Brok_fG_IpDMCffVM1inq4Ce3cUB9RabN6JdFkHMLy-QAPzxSDvz7u0mFnqkxtaSdJbA4iJLXW83tonYqR3pT958RNsfUSUnkvLfqxQCrBmAxsw5QQni4w5T-z9P-ZjcaCIRzrIcKdQuwLNLxF_XB9_86KFXhkUeT8pkJYUnIO56U2wsWMXae1YZStqqmdWRgO7wAmMO6Fz0l5nHoTKHaAS3eHdj-Kr8A5ufmCG3cLPssw;" "https://download.appdynamics.com/download/prox/download-file/nodejs-v20/23.10.0.9494/appdynamics-nodejs-standalone-linux-x64-v20-23.10.0.9494.tgz"
+RUN npm install appdynamics-nodejs-standalone-linux-x64-v20-23.10.0.9494.tgz
+#RUN npm install --omit=dev --verbose
 COPY . .
 CMD ["node", "index.js"]
